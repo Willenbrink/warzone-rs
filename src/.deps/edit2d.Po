@@ -1,0 +1,4 @@
+edit2d.o: edit2d.c \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdc-predef.h
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdc-predef.h:

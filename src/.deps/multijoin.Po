@@ -1,0 +1,556 @@
+multijoin.o: multijoin.c \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdc-predef.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdio.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/libc-header-start.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/features.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/cdefs.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/wordsize.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/long-double.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/gnu/stubs.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/gnu/stubs-32.h \
+ /nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stddef.h \
+ /nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stdarg.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/timesize.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/typesizes.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/time64.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__fpos_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__mbstate_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__fpos64_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__FILE.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/FILE.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_FILE.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/cookie_io_functions_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdio_lim.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/sys_errlist.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdio.h \
+ ../lib/framework/frame.h ../config.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/ctype.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/endian.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/endian.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/byteswap.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/uintn-identity.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/locale_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__locale_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/string.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/strings.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/stat.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_timespec.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/time_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stat.h \
+ /nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include-fixed/bits/statx.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/statx-generic.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_statx_timestamp.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_statx.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/types.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/clock_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/clockid_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/timer_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdint-intn.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/select.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/select.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/sigset_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__sigset_t.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_timeval.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/pthreadtypes.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/thread-shared-types.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/pthreadtypes-arch.h \
+ ../lib/framework/macros.h ../lib/framework/types.h \
+ /nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stdint.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdint.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/wchar.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdint-uintn.h \
+ ../lib/framework/debug.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/assert.h \
+ ../lib/framework/mem.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdlib.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/waitflags.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/waitstatus.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/floatn.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/floatn-common.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/alloca.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdlib-bsearch.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdlib-float.h \
+ ../lib/framework/input.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_main.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_stdinc.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_config.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_platform.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/inttypes.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/iconv.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/begin_code.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/close_code.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_audio.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_error.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_endian.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_mutex.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_thread.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_rwops.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_cdrom.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_cpuinfo.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_events.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_active.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_keyboard.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_keysym.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_mouse.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_video.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_joystick.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_quit.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_loadso.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_timer.h \
+ /nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_version.h \
+ ../lib/framework/font.h ../lib/framework/heap.h ../lib/framework/treap.h \
+ ../lib/framework/fractions.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/math.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/math-vector.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/libm-simd-decl-stubs.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/flt-eval-method.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/fp-logb.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/fp-fast.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls-helper-functions.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls-narrow.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/iscanonical.h \
+ /nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathinline.h \
+ ../lib/framework/trig.h ../lib/framework/frameresource.h \
+ ../lib/framework/strres.h ../lib/framework/block.h \
+ ../lib/framework/memint.h ../lib/framework/listmacs.h objmem.h \
+ objectdef.h ../lib/ivis_common/pietypes.h aidef.h functiondef.h \
+ statsdef.h movedef.h researchdef.h weapons.h base.h deliverance.h \
+ displaydef.h ../lib/ivis_common/imd.h ../lib/ivis_common/ivisdef.h \
+ ../lib/ivis_common/pietypes.h ../lib/ivis_common/bspimd.h \
+ ../lib/ivis_common/pieclip.h ../lib/ivis_common/piedef.h \
+ ../lib/ivis_common/ivispatch.h ../lib/ivis_common/piepalette.h \
+ droiddef.h ../lib/gamelib/animobj.h ../lib/gamelib/anim.h \
+ ../lib/framework/types.h ../lib/gamelib/maxpidef.h ../lib/sound/audio.h \
+ ../lib/sound/track.h \
+ /nix/store/x02k7hx2wg481gjj07rcp0vkgqdxbsf8-openal-soft-1.19.1/include/AL/al.h \
+ structuredef.h bulletdef.h featuredef.h ../lib/ivis_common/textdraw.h \
+ ../lib/gamelib/gtime.h game.h projectile.h ../lib/gamelib/anim.h droid.h \
+ map.h objects.h structure.h feature.h bullet.h ai.h move.h findpath.h \
+ function.h stats.h power.h player.h message.h messagedef.h text.h \
+ order.h orderdef.h console.h hci.h ../lib/widget/widget.h \
+ ../lib/widget/widgbase.h cdspan.h component.h research.h audio_id.h \
+ wrappers.h intimage.h intfac.h data.h ../lib/script/script.h \
+ ../lib/script/interp.h ../lib/script/stack.h ../lib/script/codeprint.h \
+ ../lib/script/parse.h ../lib/script/event.h ../lib/script/evntsave.h \
+ scripttabs.h ../lib/script/event.h ../lib/netplay/netplay.h \
+ ../lib/netplay/netlog.h multiplay.h group.h multijoin.h multirecv.h \
+ multiint.h multistat.h multigifts.h
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdc-predef.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdio.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/libc-header-start.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/features.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/cdefs.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/wordsize.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/long-double.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/gnu/stubs.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/gnu/stubs-32.h:
+
+/nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stddef.h:
+
+/nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stdarg.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/timesize.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/typesizes.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/time64.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__fpos_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__mbstate_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__fpos64_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__FILE.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/FILE.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_FILE.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/cookie_io_functions_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdio_lim.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/sys_errlist.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdio.h:
+
+../lib/framework/frame.h:
+
+../config.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/ctype.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/endian.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/endian.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/byteswap.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/uintn-identity.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/locale_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__locale_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/string.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/strings.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/stat.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_timespec.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/time_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stat.h:
+
+/nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include-fixed/bits/statx.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/statx-generic.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_statx_timestamp.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_statx.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/types.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/clock_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/clockid_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/timer_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdint-intn.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/sys/select.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/select.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/sigset_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/__sigset_t.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/types/struct_timeval.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/pthreadtypes.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/thread-shared-types.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/pthreadtypes-arch.h:
+
+../lib/framework/macros.h:
+
+../lib/framework/types.h:
+
+/nix/store/dwxnimqv0rkbz90avwy7b7bv7q1kaip4-gcc-9.3.0/lib/gcc/i686-unknown-linux-gnu/9.3.0/include/stdint.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdint.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/wchar.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdint-uintn.h:
+
+../lib/framework/debug.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/assert.h:
+
+../lib/framework/mem.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/stdlib.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/waitflags.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/waitstatus.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/floatn.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/floatn-common.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/alloca.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdlib-bsearch.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/stdlib-float.h:
+
+../lib/framework/input.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_main.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_stdinc.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_config.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_platform.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/inttypes.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/iconv.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/begin_code.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/close_code.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_audio.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_error.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_endian.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_mutex.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_thread.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_rwops.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_cdrom.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_cpuinfo.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_events.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_active.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_keyboard.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_keysym.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_mouse.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_video.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_joystick.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_quit.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_loadso.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_timer.h:
+
+/nix/store/7aq6akpcv45cskmzrf420b04gn8vhaqx-SDL-1.2.15-dev/include/SDL/SDL_version.h:
+
+../lib/framework/font.h:
+
+../lib/framework/heap.h:
+
+../lib/framework/treap.h:
+
+../lib/framework/fractions.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/math.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/math-vector.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/libm-simd-decl-stubs.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/flt-eval-method.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/fp-logb.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/fp-fast.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls-helper-functions.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathcalls-narrow.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/iscanonical.h:
+
+/nix/store/mdsj11b0if4b38njqcxvg2gd8xyn517x-glibc-2.30-dev/include/bits/mathinline.h:
+
+../lib/framework/trig.h:
+
+../lib/framework/frameresource.h:
+
+../lib/framework/strres.h:
+
+../lib/framework/block.h:
+
+../lib/framework/memint.h:
+
+../lib/framework/listmacs.h:
+
+objmem.h:
+
+objectdef.h:
+
+../lib/ivis_common/pietypes.h:
+
+aidef.h:
+
+functiondef.h:
+
+statsdef.h:
+
+movedef.h:
+
+researchdef.h:
+
+weapons.h:
+
+base.h:
+
+deliverance.h:
+
+displaydef.h:
+
+../lib/ivis_common/imd.h:
+
+../lib/ivis_common/ivisdef.h:
+
+../lib/ivis_common/pietypes.h:
+
+../lib/ivis_common/bspimd.h:
+
+../lib/ivis_common/pieclip.h:
+
+../lib/ivis_common/piedef.h:
+
+../lib/ivis_common/ivispatch.h:
+
+../lib/ivis_common/piepalette.h:
+
+droiddef.h:
+
+../lib/gamelib/animobj.h:
+
+../lib/gamelib/anim.h:
+
+../lib/framework/types.h:
+
+../lib/gamelib/maxpidef.h:
+
+../lib/sound/audio.h:
+
+../lib/sound/track.h:
+
+/nix/store/x02k7hx2wg481gjj07rcp0vkgqdxbsf8-openal-soft-1.19.1/include/AL/al.h:
+
+structuredef.h:
+
+bulletdef.h:
+
+featuredef.h:
+
+../lib/ivis_common/textdraw.h:
+
+../lib/gamelib/gtime.h:
+
+game.h:
+
+projectile.h:
+
+../lib/gamelib/anim.h:
+
+droid.h:
+
+map.h:
+
+objects.h:
+
+structure.h:
+
+feature.h:
+
+bullet.h:
+
+ai.h:
+
+move.h:
+
+findpath.h:
+
+function.h:
+
+stats.h:
+
+power.h:
+
+player.h:
+
+message.h:
+
+messagedef.h:
+
+text.h:
+
+order.h:
+
+orderdef.h:
+
+console.h:
+
+hci.h:
+
+../lib/widget/widget.h:
+
+../lib/widget/widgbase.h:
+
+cdspan.h:
+
+component.h:
+
+research.h:
+
+audio_id.h:
+
+wrappers.h:
+
+intimage.h:
+
+intfac.h:
+
+data.h:
+
+../lib/script/script.h:
+
+../lib/script/interp.h:
+
+../lib/script/stack.h:
+
+../lib/script/codeprint.h:
+
+../lib/script/parse.h:
+
+../lib/script/event.h:
+
+../lib/script/evntsave.h:
+
+scripttabs.h:
+
+../lib/script/event.h:
+
+../lib/netplay/netplay.h:
+
+../lib/netplay/netlog.h:
+
+multiplay.h:
+
+group.h:
+
+multijoin.h:
+
+multirecv.h:
+
+multiint.h:
+
+multistat.h:
+
+multigifts.h:
