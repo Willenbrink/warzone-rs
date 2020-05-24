@@ -9,12 +9,15 @@ pkgsi686Linux.stdenv.mkDerivation {
   buildInputs = with pkgsi686Linux; [
     autoconf automake bison flex zlib libjpeg libpng physfs pkgconfig
     xorg.libX11
+    zip unzip
     xorg.libXrandr
     SDL libtheora openal SDL_net
     glew fribidi 
   ];
 
   hardeningDisable = [ "all" ];
+
+  LDFLAGS = "-lX11";
 
   #configureFlags = [ "--libs" "x11" "xrandr" "xi" "xxf86vm" "glew" "glfw3"];
   #buildFlags = [ "-lX11" ];
