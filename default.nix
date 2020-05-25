@@ -7,6 +7,9 @@ pkgsi686Linux.stdenv.mkDerivation {
   nativeBuildInputs = [ pkgsi686Linux.pkgconfig ];
 
   buildInputs = with pkgsi686Linux; [
+    # Rust
+    llvm clang clang-tools cmake openssl python37 rustup rustfmt rustc cargo
+    python37Packages.pip llvmPackages.libclang
     autoconf automake bison flex zlib libjpeg libpng physfs pkgconfig
     xorg.libX11
     zip unzip
@@ -17,7 +20,10 @@ pkgsi686Linux.stdenv.mkDerivation {
 
   hardeningDisable = [ "all" ];
 
-  LDFLAGS = "-lX11";
+  # Wow, that did the trick! :)
+  LDFLAGS = "-lX11 -L" + pkgsi686Linux.llvmPackages.clang-unwrapped + "/lib/";
+  LIBCLANG_PATH = pkgsi686Linux.llvmPackages.libclang + "/lib/";
+  LIBRARY_PATH = pkgsi686Linux.llvmPackages.clang-unwrapped + "/lib/";
 
   #configureFlags = [ "--libs" "x11" "xrandr" "xi" "xxf86vm" "glew" "glfw3"];
   #buildFlags = [ "-lX11" ];
