@@ -27,7 +27,6 @@ iBool pie_PNGLoadMem(char *pngimage, iSprite *s, iColour *pal)
 {
 	unsigned int PNG_BYTES_TO_CHECK;
 	png_structp png_ptr = NULL;
-	png_infop info_ptr = NULL;
 
 	wzpng_io_buf* buf = (wzpng_io_buf*)malloc(sizeof(wzpng_io_buf));
 
@@ -50,7 +49,7 @@ iBool pie_PNGLoadMem(char *pngimage, iSprite *s, iColour *pal)
 		goto error;
 	}
 
-	info_ptr = png_create_info_struct(png_ptr);
+	png_infop info_ptr = png_create_info_struct(png_ptr);
 
 	if (info_ptr == NULL) {
 		debug(LOG_3D, "pie_PNGLoadMem: Unable to create png info struct");
@@ -86,7 +85,8 @@ iBool pie_PNGLoadMem(char *pngimage, iSprite *s, iColour *pal)
 		png_set_tRNS_to_alpha(png_ptr);
 		png_set_filler(png_ptr, 0xFF, PNG_FILLER_AFTER);
     //TODO FIXME CRITICAL
-		//png_set_gray_1_2_4_to_8(png_ptr);
+    //png_set_gray_1_2_4_to_8(png_ptr);
+    // is deprecated, instead we use ..expand.. which apparently handles alpha differently.
 		png_set_expand_gray_1_2_4_to_8(png_ptr);
 
 		/* scale greyscale values to the range 0..255 */
@@ -107,7 +107,7 @@ iBool pie_PNGLoadMem(char *pngimage, iSprite *s, iColour *pal)
 			// Freeing s->bmp before allocating new mem would give a HEAP error on Windows (Invalid Address specified to RtlFreeHeap( x, x )).
       //TODO FIXME CRITICAL
 			//s->bmp = malloc(w*h*info_ptr->channels);
-			s->bmp = malloc(w*h*32);
+			s->bmp = malloc(w*h*4);
 		}
 
 		{
@@ -116,7 +116,7 @@ iBool pie_PNGLoadMem(char *pngimage, iSprite *s, iColour *pal)
 			unsigned int i;
       //TODO FIXME CRITICAL
 			//const unsigned int line_size = s->width*info_ptr->channels;
-			const unsigned int line_size = 32; //s->width*info_ptr->channels;
+			const unsigned int line_size = s->width * 4; //s->width*info_ptr->channels;
 
 			for (i = 0, pdata = s->bmp;
 			     i < s->height;
