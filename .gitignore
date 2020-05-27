@@ -2,3 +2,5 @@ Makefile
 *.rs
 *.o
 *.a
+**/.deps/
+src/warzone2100
