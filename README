@@ -1,3 +1,8 @@
+This repository contains an outdated version of Warzone 2100.
+For a more actively maintained and up-to-date repository see https://github.com/Warzone2100/warzone2100/
+The goal of this repository is to port the source code to Rust using c2rust. To achieve this, the code is based on one of the last releases containing only C code. This may be subject to change as this results in many problems. This version ignores all the progress made in the maintained fork, is intended for 32-bit platforms (TODO), does not have any tests and the resources (cutscenes, maps, etc.) are hard to find because the format has been reworked in recent versions.
+Nevertheless one can find a completely functional version on: https://web.archive.org/web/20060902155729/http://www.wz.rootzilla.de:80/wiki/downloads
+
 Warzone 2100 by Warzone Resurrection Project
 
 
