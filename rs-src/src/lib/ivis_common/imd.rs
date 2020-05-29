@@ -1,0 +1,260 @@
+use ::libc;
+extern "C" {
+    #[no_mangle]
+    fn memFreeRelease(pMemToFree: *mut libc::c_void);
+}
+pub type UWORD = libc::c_ushort;
+// Routines to provide simple maths functions that work on both PSX & PC
+// Use the type "FRACT" instead of FLOAT
+//  - This is defined as a float on PC and a 20.12 fixed point number on PSX
+//
+//  Use:-
+//		MAKEFRACT(int);  to convert from a SDWORD to a FRACT
+//		MAKEINT(fract);	to convert the other way
+//		FRACTmul(fract,fract); to multiply two fract numbers
+//		FRACTdiv(fract,fract); to divide two numbers
+//		SQRT(fract);		to get square root of a fract (returns a fract)
+//      iSQRT(int);			to get a square root of an integer (returns an UDWORD)
+//      FRACTCONST(constA,constB);	; Generates a constant of (constA/constB)
+//                         e.g. to define 0.5 use FRACTCONST(1,2)
+//                              to define 0.114 use FRACTCONT(114,1000)
+//
+// Also PERCENT(int,int);	// returns a int value 0->100 of the percentage of the first param over the second
+//
+// This file used to be in the deliverance src directory. But Jeremy quite correctly
+// pointed out to me that it should be library based not deliverance based, and hence
+// has now been moved to the lib\framework directory
+//
+// If you are reading this file from the deliverance source directory, please delete it now
+// To multiply a FRACT by a integer just use the normal operator 
+//   e.g.   FractValue2=FractValue*Interger;
+//
+// save is true of divide
+/* Check the header files have been included from frame.h if they
+ * are used outside of the framework library.
+ */
+pub type FRACT = libc::c_float;
+pub type int32 = libc::c_int;
+pub type uint8 = libc::c_uchar;
+pub type uint16 = libc::c_ushort;
+pub type uint32 = libc::c_uint;
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct iVector {
+    pub x: int32,
+    pub y: int32,
+    pub z: int32,
+}
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct iVertex {
+    pub x: int32,
+    pub y: int32,
+    pub z: int32,
+    pub u: int32,
+    pub v: int32,
+    pub g: uint8,
+}
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct iTexAnim {
+    pub nFrames: libc::c_int,
+    pub playbackRate: libc::c_int,
+    pub textureWidth: libc::c_int,
+    pub textureHeight: libc::c_int,
+}
+pub type BSPPOLYID = uint16;
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct PLANE {
+    pub a: FRACT,
+    pub b: FRACT,
+    pub c: FRACT,
+    pub d: FRACT,
+    pub vP: iVector,
+}
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct BSPTREENODE {
+    pub link: [*mut BSPTREENODE; 2],
+    pub Plane: PLANE,
+    pub TriSameDir: BSPPOLYID,
+    pub TriOppoDir: BSPPOLYID,
+}
+// only needed when generating the tree
+/* **************************************************************************/
+// These 1st three entries can NOT NOW be cast into a iVectorf *   (iVectorf on PC are doubles)
+// these values form the plane equation ax+by+cz=d
+// a point on the plane - in normal non-fract format
+pub type PSBSPTREENODE = *mut BSPTREENODE;
+pub type VERTEXID = libc::c_int;
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct iIMDPoly {
+    pub flags: uint32,
+    pub zcentre: int32,
+    pub npnts: libc::c_int,
+    pub normal: iVector,
+    pub pindex: *mut VERTEXID,
+    pub vrt: *mut iVertex,
+    pub pTexAnim: *mut iTexAnim,
+    pub BSP_NextPoly: BSPPOLYID,
+}
+#[derive(Copy, Clone)]
+#[repr(C)]
+pub struct iIMDShape {
+    pub flags: uint32,
+    pub texpage: int32,
+    pub oradius: int32,
+    pub sradius: int32,
+    pub radius: int32,
+    pub visRadius: int32,
+    pub xmin: int32,
+    pub xmax: int32,
+    pub ymin: int32,
+    pub ymax: int32,
+    pub zmin: int32,
+    pub zmax: int32,
+    pub ocen: iVector,
+    pub numFrames: UWORD,
+    pub animInterval: UWORD,
+    pub npoints: libc::c_int,
+    pub npolys: libc::c_int,
+    pub nconnectors: libc::c_int,
+    pub points: *mut iVector,
+    pub polys: *mut iIMDPoly,
+    pub connectors: *mut iVector,
+    pub ntexanims: libc::c_int,
+    pub texanims: *mut *mut iTexAnim,
+    pub next: *mut iIMDShape,
+    pub BSPNode: PSBSPTREENODE,
+}
+// points to first polygon in the BSP tree entry ... BSP_NextPoly in the iIMDPoly structure will point to the next entry
+// id of the first polygon in the list ... or BSPPOLYID_TERMINATE for none
+// id of the first polygon in the list ... or BSPPOLYID_TERMINATE for none
+// only needed when generating the tree
+// we need BSPIMD defined if we want to read & use the BSP imd files
+// Define this if we are compile ivis for the BSP generating tool, also for PIEBIN tool
+//#define PIETOOL
+//*************************************************************************
+//*************************************************************************
+//*************************************************************************
+//*************************************************************************
+// Output BSP Tree to a file
+// This stuff saves out the BSP tree as generated by the BSP tool
+//
+// Because of the complexities of the BSP generation tool. The IMD is stored in a different
+// format when it is generated compared to when it is loaded and used in the game.
+// This means that when saving out a BSP tree from the tool other functions need to be included
+// most of them are in ptrlist.c which is no longer included in ivis. See the source for BSPIMD
+// for this file. Becareful not to confuse this with the same named file in deliverance/src which
+// might or might not be the same.
+//
+//*************************************************************************
+//*** print IMD file info
+//*
+//* pre		shape successfully loaded
+//*
+//* params	s = pointer to IMD shape
+//*
+//******
+#[no_mangle]
+pub unsafe extern "C" fn iV_IMDDebug(mut s: *mut iIMDShape) {
+    let mut sp: *mut iIMDShape = 0 as *mut iIMDShape;
+    let mut poly: *mut iIMDPoly = 0 as *mut iIMDPoly;
+    let mut nlevel: libc::c_int = 0;
+    let mut i: libc::c_int = 0;
+    let mut j: libc::c_int = 0;
+    let mut d: libc::c_int = 0;
+    // find number of levels in shape
+    nlevel = 0 as libc::c_int;
+    sp = s;
+    while !sp.is_null() { sp = (*sp).next; nlevel += 1 }
+    sp = s;
+    i = 0 as libc::c_int;
+    while i < nlevel {
+        j = 0 as libc::c_int;
+        while j < (*sp).npoints { j += 1 }
+        // write shape polys
+        poly = (*sp).polys;
+        j = 0 as libc::c_int;
+        while j < (*sp).npolys {
+            d = 0 as libc::c_int;
+            while d < (*poly).npnts { d += 1 }
+            // if textured write texture uv's
+            if (*poly).flags & 0x200 as libc::c_int as libc::c_uint != 0 {
+                d = 0 as libc::c_int;
+                while d < (*poly).npnts { d += 1 }
+            }
+            j += 1;
+            poly = poly.offset(1)
+        }
+        sp = (*sp).next;
+        i += 1
+    };
+}
+//*************************************************************************
+//*** free IMD shape memory
+//*
+//* pre		shape successfully allocated
+//*
+//* params	shape = pointer to IMD shape
+//*
+//******
+#[no_mangle]
+pub unsafe extern "C" fn iV_IMDRelease(mut s: *mut iIMDShape) {
+    let mut i: libc::c_int = 0;
+    let mut d: *mut iIMDShape = 0 as *mut iIMDShape;
+    if !s.is_null() {
+        if (*s).flags & 0x10 as libc::c_int as libc::c_uint != 0 {
+            memFreeRelease(s as *mut libc::c_void);
+            s = 0 as *mut iIMDShape;
+            return
+        }
+        if !(*s).points.is_null() {
+            memFreeRelease((*s).points as *mut libc::c_void);
+            (*s).points = 0 as *mut iVector
+        }
+        if !(*s).connectors.is_null() {
+            memFreeRelease((*s).connectors as *mut libc::c_void);
+            (*s).connectors = 0 as *mut iVector
+        }
+        if !(*s).BSPNode.is_null() {
+            memFreeRelease((*s).BSPNode as *mut libc::c_void);
+            (*s).BSPNode = 0 as PSBSPTREENODE
+            // I used MALLOC() so i'm going to use FREE()
+        }
+        if !(*s).polys.is_null() {
+            i = 0 as libc::c_int;
+            while i < (*s).npolys {
+                if !(*(*s).polys.offset(i as isize)).pindex.is_null() {
+                    memFreeRelease((*(*s).polys.offset(i as isize)).pindex as
+                                       *mut libc::c_void);
+                    let ref mut fresh0 =
+                        (*(*s).polys.offset(i as isize)).pindex;
+                    *fresh0 = 0 as *mut VERTEXID
+                }
+                if !(*(*s).polys.offset(i as isize)).pTexAnim.is_null() {
+                    memFreeRelease((*(*s).polys.offset(i as isize)).pTexAnim
+                                       as *mut libc::c_void);
+                    let ref mut fresh1 =
+                        (*(*s).polys.offset(i as isize)).pTexAnim;
+                    *fresh1 = 0 as *mut iTexAnim
+                }
+                if !(*(*s).polys.offset(i as isize)).vrt.is_null() {
+                    memFreeRelease((*(*s).polys.offset(i as isize)).vrt as
+                                       *mut libc::c_void);
+                    let ref mut fresh2 = (*(*s).polys.offset(i as isize)).vrt;
+                    *fresh2 = 0 as *mut iVertex
+                }
+                i += 1
+            }
+            memFreeRelease((*s).polys as *mut libc::c_void);
+            (*s).polys = 0 as *mut iIMDPoly
+        }
+        d = (*s).next;
+        memFreeRelease(s as *mut libc::c_void);
+        s = 0 as *mut iIMDShape;
+        iV_IMDRelease(d);
+    };
+}
