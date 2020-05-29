@@ -1,12 +1,12 @@
 with import <nixpkgs> {};
 
-pkgsi686Linux.clangStdenv.mkDerivation {
+pkgsi686Linux.clangStdenv.mkDerivation rec {
   pname = "warzone";
   version = "0.1";
   preConfigure= "./autogen.sh";
   nativeBuildInputs = [ pkgsi686Linux.pkgconfig ];
 
-  buildInputs = with pkgsi686Linux; [
+  buildInputs_32bit = with pkgsi686Linux; [
     # Rust
     llvm clang clang-tools cmake openssl python37 rustup rustfmt rustc cargo
     llvmPackages.clang-unwrapped
@@ -23,6 +23,10 @@ pkgsi686Linux.clangStdenv.mkDerivation {
     libogg
     libvorbis
     libpng_apng
+  ];
+
+  buildInputs = with pkgs; buildInputs_32bit ++ [
+    rustc rustfmt rustup cargo
   ];
 
   INCLUDES = with pkgsi686Linux; map (x: " -I " + x + "/include/")
