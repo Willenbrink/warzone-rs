@@ -17,14 +17,18 @@ pkgsi686Linux.clangStdenv.mkDerivation {
     xorg.libXrandr
     SDL libtheora openal SDL_net
     glew fribidi 
-    glibc.dev
-    SDL.dev
     libglvnd
     xorg.xorgproto
+    libGLU
+    libogg
+    libvorbis
+    libpng_apng
   ];
 
-  INCLUDES = with pkgsi686Linux; map (x: " -I " + x)
-    [ (glibc.dev + "/include/") (SDL.dev + "/include/") (openal + "/include/") (xorg.libX11.dev + "/include/") (physfs + "/include/") (libglvnd.dev + "/include/") (xorg.xorgproto + "/include/") ];
+  INCLUDES = with pkgsi686Linux; map (x: " -I " + x + "/include/")
+    [ glibc.dev SDL.dev openal xorg.libX11.dev physfs libglvnd.dev xorg.xorgproto libGLU.dev libjpeg.dev SDL_net
+      libogg.dev libvorbis.dev libpng_apng.dev
+    ];
   LDFLAGS = "-lX11 -L" + pkgsi686Linux.llvmPackages.clang-unwrapped + "/lib/";
   LIBCLANG_PATH = pkgsi686Linux.llvmPackages.libclang + "/lib/";
   #RUST_BACKTRACE = 1;
